@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
   gpuTKTime_start(GPU, "Copying input memory to the GPU.");
   //@@ Copy memory to the GPU here
   cudaMemcpy(deviceA, hostA, numARows * numAColumns * sizeof(float), cudaMemcpyHostToDevice);
-  cudaMemcpy(deviceB, hostB, numARows * numAColumns * sizeof(float), cudaMemcpyHostToDevice);
+  cudaMemcpy(deviceB, hostB, numBRows * numBColumns * sizeof(float), cudaMemcpyHostToDevice);
 
   gpuTKTime_stop(GPU, "Copying input memory to the GPU.");
 
@@ -77,11 +77,15 @@ int main(int argc, char **argv) {
 
   gpuTKTime_start(Copy, "Copying output memory to the CPU");
   //@@ Copy the GPU memory back to the CPU here
+  cudaMemcpy(hostC, deviceC, numCRows * numCColumns * sizeof(float), cudaMemcpyDeviceToHost);
 
   gpuTKTime_stop(Copy, "Copying output memory to the CPU");
 
   gpuTKTime_start(GPU, "Freeing GPU Memory");
   //@@ Free the GPU memory here
+  cudaFree(deviceA);
+  cudaFree(deviceB);
+  cudaFree(deviceC);
 
   gpuTKTime_stop(GPU, "Freeing GPU Memory");
 
