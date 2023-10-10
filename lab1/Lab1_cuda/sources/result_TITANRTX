@@ -1,0 +1,91 @@
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 4.60396 ms
+The input length is 16
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.171383 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.051758 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.051921 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.022061 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.240961 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 2.25838 ms
+The input length is 64
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.167926 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.0424 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.050101 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.021986 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.140013 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 2.39982 ms
+The input length is 93
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.182018 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.046765 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.047293 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.022419 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.131853 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 2.73972 ms
+The input length is 112
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.175451 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.042084 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.048382 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.022597 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.132165 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 14.1392 ms
+The input length is 1120
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.175444 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.050485 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.049446 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.023551 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.132493 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 109.145 ms
+The input length is 9921
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.169549 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.079116 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.049603 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.033841 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.131748 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 149.509 ms
+The input length is 14000
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.176271 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.091149 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.050109 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.037131 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.144005 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 250.292 ms
+The input length is 25365
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.175839 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.111952 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.049458 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.046682 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.13896 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 443.713 ms
+The input length is 48000
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.171201 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.173234 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.051683 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.069277 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.138082 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 22-28] Elapsed time: 855.705 ms
+The input length is 96000
+[TIME][GPU][Allocating GPU memory.][template.cu: 32-38] Elapsed time: 0.169616 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 40-45] Elapsed time: 0.285482 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 53-58] Elapsed time: 0.062116 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 60-64] Elapsed time: 0.114213 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 66-72] Elapsed time: 0.142221 ms
+The solution is correct
+
