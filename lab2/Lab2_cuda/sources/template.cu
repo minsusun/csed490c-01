@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
   
   dim3 gridSize((OUTPUT_LENGTH + THREADS_PER_BLOCK - 1) / THREADS_PER_BLOCK, 1, 1);
   dim3 blockSize(TILE_WIDTH, TILE_WIDTH, 1);
-  size_t sharedMemorySize = TILE_WIDTH * TILE_WIDTH * sizeof(float);
+  size_t sharedMemorySize = TILE_WIDTH * TILE_WIDTH * sizeof(float) * 2;
 
   gpuTKTime_start(Compute, "Performing CUDA computation");
   //@@ Launch the GPU Kernel here
