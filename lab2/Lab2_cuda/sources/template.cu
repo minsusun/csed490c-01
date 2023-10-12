@@ -18,7 +18,11 @@ __global__ void matrixMultiplyShared(float *A, float *B, float *C,
   //@@ Insert code to implement matrix multiplication here
   //@@ You have to use shared memory for this lab
   // 1 block = tile_width x tile_width threads
+  // ASSERT blockDim.x == blockDim.y
   const int TILE_WIDTH = blockDim.x;
+  // Width of total elements to compute single element in C
+  // ASSERT numAColumns == numBRows
+  const int Width = numAColumns;
 
   __shared__ float ds_A[TILE_WIDTH][TILE_WIDTH];
   __shared__ float ds_B[TILE_WIDTH][TILE_WIDTH];
@@ -31,7 +35,23 @@ __global__ void matrixMultiplyShared(float *A, float *B, float *C,
   int Row = by * blockDim.y + ty;
   int Col = bx * blockDim.x + tx;
   
-  float Pvalue = 0;
+  float Cvalue = 0.0;
+
+  for (int phase = 0; phase < ((Width - 1) / TILE_WIDTH) + 1; phase++) {
+    if (Row < Width && phase * TILE_WIDTH + tx < Width) ds_A[ty][tx] = A[Row * Width + phase * TILE_WIDTH + tx];
+    else ds_A[ty][tx] = 0.0;
+
+    if (Col < Width && phase * TILE_WIDTH + ty < Width) ds_B[ty][tx] = B[(phase * TILE_WIDTH) * Width + Col];
+    else ds_B[ty][tx] = 0.0;
+
+    __syncthreads();
+
+    if (Row < Width && Col < Width) for (int ii = 0; ii < TILE_WIDTH; ii++) Cvalue += ds_A[ty][ii] * ds_B[ii][tx];
+
+    __syncthreads();
+  }
+
+  if (Row < Width && Col < Width) C[Row * Width + Col] = CValue;
 }
 
 int main(int argc, char **argv) {
