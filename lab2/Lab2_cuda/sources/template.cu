@@ -1,5 +1,7 @@
 #include <gputk.h>
 
+#define TILE_WIDTH 2
+
 #define gpuTKCheck(stmt)                                                     \
   do {                                                                    \
     cudaError_t err = stmt;                                               \
@@ -17,9 +19,6 @@ __global__ void matrixMultiplyShared(float *A, float *B, float *C,
                                      int numCRows, int numCColumns) {
   //@@ Insert code to implement matrix multiplication here
   //@@ You have to use shared memory for this lab
-  // 1 block = tile_width x tile_width threads
-  // ASSERT blockDim.x == blockDim.y
-  const int TILE_WIDTH = blockDim.x;
   // Width of total elements to compute single element in C
   // ASSERT numAColumns == numBRows
   const int Width = numAColumns;
@@ -51,7 +50,7 @@ __global__ void matrixMultiplyShared(float *A, float *B, float *C,
     __syncthreads();
   }
 
-  if (Row < Width && Col < Width) C[Row * Width + Col] = CValue;
+  if (Row < Width && Col < Width) C[Row * Width + Col] = Cvalue;
 }
 
 int main(int argc, char **argv) {
@@ -103,7 +102,6 @@ int main(int argc, char **argv) {
   gpuTKTime_stop(GPU, "Copying input memory to the GPU.");
 
   //@@ Initialize the grid and block dimensions here
-  const int TILE_WIDTH = 2;
   const int THREADS_PER_BLOCK = TILE_WIDTH * TILE_WIDTH;
   const int OUTPUT_LENGTH = numCRows * numCColumns;
   
@@ -113,7 +111,7 @@ int main(int argc, char **argv) {
 
   gpuTKTime_start(Compute, "Performing CUDA computation");
   //@@ Launch the GPU Kernel here
-  matrixMultiplyShared<<<gridSize, blockSzie, sharedMemorySize>>>(deviceA, deviceB, deviceC, numARows, numAColumns, numBRows, numBColumns, numCRows, numCColumns);
+  matrixMultiplyShared<<<gridSize, blockSize, sharedMemorySize>>>(deviceA, deviceB, deviceC, numARows, numAColumns, numBRows, numBColumns, numCRows, numCColumns);
 
   cudaDeviceSynchronize();
   gpuTKTime_stop(Compute, "Performing CUDA computation");
