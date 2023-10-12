@@ -37,15 +37,15 @@ __global__ void matrixMultiplyShared(float *A, float *B, float *C,
   float Cvalue = 0.0;
 
   for (int phase = 0; phase < ((Width - 1) / TILE_WIDTH) + 1; phase++) {
-    if (Row < Width && phase * TILE_WIDTH + tx < Width) ds_A[ty][tx] = A[Row * Width + phase * TILE_WIDTH + tx];
-    else ds_A[ty][tx] = 0.0;
+    if (Row < Width && phase * TILE_WIDTH + tx < Width) ds_A[tx][ty] = A[Row * Width + phase * TILE_WIDTH + ty];
+    else ds_A[tx][ty] = 0.0;
 
-    if (Col < Width && phase * TILE_WIDTH + ty < Width) ds_B[ty][tx] = B[(phase * TILE_WIDTH + ty) * Width + Col];
-    else ds_B[ty][tx] = 0.0;
+    if (Col < Width && phase * TILE_WIDTH + ty < Width) ds_B[tx][ty] = B[(phase * TILE_WIDTH + tx) * Width + Col];
+    else ds_B[tx][ty] = 0.0;
 
     __syncthreads();
 
-    if (Row < Width && Col < Width) for (int ii = 0; ii < TILE_WIDTH; ii++) Cvalue += ds_A[ty][ii] * ds_B[ii][tx];
+    if (Row < Width && Col < Width) for (int ii = 0; ii < TILE_WIDTH; ii++) Cvalue += ds_A[tx][ii] * ds_B[ii][ty];
 
     __syncthreads();
   }
