@@ -1,6 +1,6 @@
 #include <gputk.h>
 
-#define TILE_WIDTH 2
+#define TILE_WIDTH 32
 
 #define gpuTKCheck(stmt)                                                     \
   do {                                                                    \
@@ -19,10 +19,6 @@ __global__ void matrixMultiplyShared(float *A, float *B, float *C,
                                      int numCRows, int numCColumns) {
   //@@ Insert code to implement matrix multiplication here
   //@@ You have to use shared memory for this lab
-  // Width of total elements to compute single element in C
-  // ASSERT numAColumns == numBRows
-  const int Width = numAColumns;
-
   __shared__ float ds_A[TILE_WIDTH][TILE_WIDTH];
   __shared__ float ds_B[TILE_WIDTH][TILE_WIDTH];
 
@@ -36,21 +32,21 @@ __global__ void matrixMultiplyShared(float *A, float *B, float *C,
   
   float Cvalue = 0.0;
 
-  for (int phase = 0; phase < ((Width - 1) / TILE_WIDTH) + 1; phase++) {
-    if (Row < Width && phase * TILE_WIDTH + tx < Width) ds_A[ty][tx] = A[Row * Width + phase * TILE_WIDTH + tx];
+  for (int phase = 0; phase < (numAColumns - 1) / TILE_WIDTH + 1; phase++) {
+    if (Row < numCRows && phase * TILE_WIDTH + tx < numAColumns) ds_A[ty][tx] = A[Row * numAColumns + phase * TILE_WIDTH + tx];
     else ds_A[ty][tx] = 0.0;
 
-    if (Col < Width && phase * TILE_WIDTH + ty < Width) ds_B[ty][tx] = B[(phase * TILE_WIDTH + ty) * Width + Col];
+    if (Col < numCColumns && phase * TILE_WIDTH + ty < numBRows) ds_B[ty][tx] = B[(phase * TILE_WIDTH + ty) * numBColumns + Col];
     else ds_B[ty][tx] = 0.0;
 
     __syncthreads();
 
-    if (Row < Width && Col < Width) for (int ii = 0; ii < TILE_WIDTH; ii++) Cvalue += ds_A[ty][ii] * ds_B[ii][tx];
+    if (Row < numCRows && Col < numCColumns) { for (int ii = 0; ii < TILE_WIDTH; ii++) Cvalue += ds_A[ty][ii] * ds_B[ii][tx]; }
 
     __syncthreads();
   }
 
-  if (Row < Width && Col < Width) C[Row * Width + Col] = Cvalue;
+  if (Row < numCRows && Col < numCColumns) C[Row * numCColumns + Col] = Cvalue;
 }
 
 int main(int argc, char **argv) {
@@ -88,9 +84,9 @@ int main(int argc, char **argv) {
 
   gpuTKTime_start(GPU, "Allocating GPU memory.");
   //@@ Allocate GPU memory here
-  cudaMalloc((void **)deviceA, numARows * numAColumns * sizeof(float));
-  cudaMalloc((void **)deviceB, numBRows * numBColumns * sizeof(float));
-  cudaMalloc((void **)deviceC, numCRows * numCColumns * sizeof(float));
+  cudaMalloc((void **)&deviceA, numARows * numAColumns * sizeof(float));
+  cudaMalloc((void **)&deviceB, numBRows * numBColumns * sizeof(float));
+  cudaMalloc((void **)&deviceC, numCRows * numCColumns * sizeof(float));
 
   gpuTKTime_stop(GPU, "Allocating GPU memory.");
 
@@ -102,10 +98,7 @@ int main(int argc, char **argv) {
   gpuTKTime_stop(GPU, "Copying input memory to the GPU.");
 
   //@@ Initialize the grid and block dimensions here
-  const int THREADS_PER_BLOCK = TILE_WIDTH * TILE_WIDTH;
-  const int OUTPUT_LENGTH = numCRows * numCColumns;
-  
-  dim3 gridSize((OUTPUT_LENGTH + THREADS_PER_BLOCK - 1) / THREADS_PER_BLOCK + 1, 1, 1);
+  dim3 gridSize((numCColumns - 1) / TILE_WIDTH + 1, (numCRows - 1) / TILE_WIDTH + 1, 1);
   dim3 blockSize(TILE_WIDTH, TILE_WIDTH, 1);
   size_t sharedMemorySize = TILE_WIDTH * TILE_WIDTH * sizeof(float) * 2;
 
