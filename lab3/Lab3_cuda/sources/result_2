@@ -1,0 +1,61 @@
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 1.26055 ms
+The input length is 16
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.123178 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.159553 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 2.26477 ms
+The input length is 64
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.153566 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.179614 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 2.27974 ms
+The input length is 93
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.108482 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.143418 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 2.33833 ms
+The input length is 112
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.104374 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.129064 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 29.3098 ms
+The input length is 1120
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.20073 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.256278 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 115.036 ms
+The input length is 9921
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.103845 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.105067 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 198.064 ms
+The input length is 14000
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.143755 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.160956 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 244.918 ms
+The input length is 25365
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.102829 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.105905 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 417.785 ms
+The input length is 48000
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.106821 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.094804 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 26-32] Elapsed time: 763.272 ms
+The input length is 96000
+[TIME][Compute][Performing CUDA computation][template.cu: 54-78] Elapsed time: 0.130864 ms
+[TIME][GPU][Freeing Pinned Memory][template.cu: 81-90] Elapsed time: 0.102551 ms
+The solution is correct
+
