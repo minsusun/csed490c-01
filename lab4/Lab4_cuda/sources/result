@@ -1,0 +1,50 @@
+
+[TIME][GPU][Doing GPU memory allocation][template.cu: 118-123] Elapsed time: 0.346043 ms
+[TIME][Copy][Copying data to the GPU][template.cu: 125-129] Elapsed time: 0.095834 ms
+[TIME][Compute][Doing the computation on the GPU][template.cu: 131-139] Elapsed time: 0.096799 ms
+[TIME][Copy][Copying data from the GPU][template.cu: 141-146] Elapsed time: 0.108401 ms
+[TIME][GPU][Doing GPU Computation (memory + compute)][template.cu: 116-148] Elapsed time: 0.901771 ms
+The solution is correct
+
+[TIME][GPU][Doing GPU memory allocation][template.cu: 118-123] Elapsed time: 0.181705 ms
+[TIME][Copy][Copying data to the GPU][template.cu: 125-129] Elapsed time: 0.073902 ms
+[TIME][Compute][Doing the computation on the GPU][template.cu: 131-139] Elapsed time: 0.054812 ms
+[TIME][Copy][Copying data from the GPU][template.cu: 141-146] Elapsed time: 0.105397 ms
+[TIME][GPU][Doing GPU Computation (memory + compute)][template.cu: 116-148] Elapsed time: 0.548241 ms
+The solution is correct
+
+[TIME][GPU][Doing GPU memory allocation][template.cu: 118-123] Elapsed time: 0.169949 ms
+[TIME][Copy][Copying data to the GPU][template.cu: 125-129] Elapsed time: 0.245499 ms
+[TIME][Compute][Doing the computation on the GPU][template.cu: 131-139] Elapsed time: 0.06794 ms
+[TIME][Copy][Copying data from the GPU][template.cu: 141-146] Elapsed time: 0.618249 ms
+[TIME][GPU][Doing GPU Computation (memory + compute)][template.cu: 116-148] Elapsed time: 1.22838 ms
+The solution is correct
+
+[TIME][GPU][Doing GPU memory allocation][template.cu: 118-123] Elapsed time: 0.515916 ms
+[TIME][Copy][Copying data to the GPU][template.cu: 125-129] Elapsed time: 0.555658 ms
+[TIME][Compute][Doing the computation on the GPU][template.cu: 131-139] Elapsed time: 0.12246 ms
+[TIME][Copy][Copying data from the GPU][template.cu: 141-146] Elapsed time: 1.93986 ms
+[TIME][GPU][Doing GPU Computation (memory + compute)][template.cu: 116-148] Elapsed time: 3.38652 ms
+The solution is correct
+
+[TIME][GPU][Doing GPU memory allocation][template.cu: 118-123] Elapsed time: 0.613212 ms
+[TIME][Copy][Copying data to the GPU][template.cu: 125-129] Elapsed time: 2.03254 ms
+[TIME][Compute][Doing the computation on the GPU][template.cu: 131-139] Elapsed time: 0.48172 ms
+[TIME][Copy][Copying data from the GPU][template.cu: 141-146] Elapsed time: 4.48264 ms
+[TIME][GPU][Doing GPU Computation (memory + compute)][template.cu: 116-148] Elapsed time: 7.77248 ms
+The solution is correct
+
+[TIME][GPU][Doing GPU memory allocation][template.cu: 118-123] Elapsed time: 0.634338 ms
+[TIME][Copy][Copying data to the GPU][template.cu: 125-129] Elapsed time: 12.1237 ms
+[TIME][Compute][Doing the computation on the GPU][template.cu: 131-139] Elapsed time: 4.4632 ms
+[TIME][Copy][Copying data from the GPU][template.cu: 141-146] Elapsed time: 24.1992 ms
+[TIME][GPU][Doing GPU Computation (memory + compute)][template.cu: 116-148] Elapsed time: 41.5568 ms
+The solution is correct
+
+[TIME][GPU][Doing GPU memory allocation][template.cu: 118-123] Elapsed time: 1.62743 ms
+[TIME][Copy][Copying data to the GPU][template.cu: 125-129] Elapsed time: 86.6505 ms
+[TIME][Compute][Doing the computation on the GPU][template.cu: 131-139] Elapsed time: 62.1321 ms
+[TIME][Copy][Copying data from the GPU][template.cu: 141-146] Elapsed time: 165.634 ms
+[TIME][GPU][Doing GPU Computation (memory + compute)][template.cu: 116-148] Elapsed time: 316.178 ms
+The solution is correct
+
