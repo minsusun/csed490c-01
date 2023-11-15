@@ -1,89 +1,89 @@
 
-[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 0.510724 ms
+[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 0.663061 ms
 The input length is 16
 The number of bins is 4096
-[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.140582 ms
-[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.037182 ms
+[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.174378 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.041585 ms
 Launching kernel
-[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.050049 ms
-[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.035798 ms
-[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.102903 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.048028 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.039416 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.119362 ms
 The solution is correct
 
-[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 9.54127 ms
+[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 7.41069 ms
 The input length is 1024
 The number of bins is 4096
-[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.204103 ms
-[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.051511 ms
+[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.159254 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.040987 ms
 Launching kernel
-[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.05933 ms
-[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.044013 ms
-[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.156615 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.049978 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.038536 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.125412 ms
 The solution is correct
 
-[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 3.60249 ms
+[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 3.55907 ms
 The input length is 513
 The number of bins is 4096
-[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.144566 ms
-[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.036873 ms
+[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.14222 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.036898 ms
 Launching kernel
-[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.045269 ms
-[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.034187 ms
-[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.103332 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.043399 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.033923 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.103498 ms
 The solution is correct
 
-[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 4.99462 ms
+[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 3.2868 ms
 The input length is 511
 The number of bins is 4096
-[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.205446 ms
-[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.05141 ms
+[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.13334 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.032454 ms
 Launching kernel
-[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.061686 ms
-[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.041897 ms
-[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.141738 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.04111 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.03186 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.095044 ms
 The solution is correct
 
-[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 0.595849 ms
+[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 0.509823 ms
 The input length is 1
 The number of bins is 4096
-[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.341635 ms
-[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.068038 ms
+[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.137834 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.031896 ms
 Launching kernel
-[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.089664 ms
-[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.066007 ms
-[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.195559 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.043854 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.03042 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.094819 ms
 The solution is correct
 
-[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 2012.3 ms
+[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 1830.75 ms
 The input length is 500000
 The number of bins is 4096
-[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.127528 ms
-[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.375815 ms
+[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.115081 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.372253 ms
 Launching kernel
-[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.116726 ms
-[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.020661 ms
-[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.086811 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.114001 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.020602 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.087562 ms
 The solution is correct
 
-[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 2919.27 ms
+[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 3012.8 ms
 The input length is 800000
 The number of bins is 4096
-[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.213199 ms
-[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.491767 ms
+[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.212611 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.505721 ms
 Launching kernel
-[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.220217 ms
-[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.02435 ms
-[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.226197 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.217546 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.026864 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.223573 ms
 The solution is correct
 
-[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 4302.91 ms
+[TIME][Generic][Importing data and creating memory on host][template.cu: 58-62] Elapsed time: 4330.04 ms
 The input length is 1200000
 The number of bins is 4096
-[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.255681 ms
-[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.646745 ms
+[TIME][GPU][Allocating GPU memory.][template.cu: 67-72] Elapsed time: 0.234154 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 74-78] Elapsed time: 0.630526 ms
 Launching kernel
-[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.352934 ms
-[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.025799 ms
-[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.279346 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 83-88] Elapsed time: 0.350943 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 90-94] Elapsed time: 0.027134 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 96-100] Elapsed time: 0.277781 ms
 The solution is correct
 
