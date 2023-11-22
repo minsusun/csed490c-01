@@ -17,11 +17,55 @@
     }                                                                     \
   } while (0)
 
-__global__ void scan(float *input, float *output, int len) {
+__global__ void add_block_sum(float *input, float *output, int len){
+  int bid = blockIdx.x;
+  int idx = bid * blockDim.x + threadIdx.x;
+
+  if (bid > 0 && idx < len)
+    output[idx] += input[bid - 1];
+}
+
+__global__ void scan(float *input, float *output, float *aux, int len) {
   //@@ Modify the body of this function to complete the functionality of
   //@@ the scan on the device
   //@@ You may need multiple kernel calls; write your kernels before this
   //@@ function and call them from here
+  __shared__ float T[BLOCK_SIZE];
+
+  int tid = threadIdx.x;
+  int base_idx = blockIdx.x * blockDim.x;
+
+  // import data
+  if (base_idx + tid < len)
+    T[tid] = input[base_idx + tid];
+  else
+    T[tid] = 0.0f;
+
+  // pre-scan step
+  for (unsigned stride = 1; stride <= blockDim.x; stride *= 2) {
+    __syncthreads();
+
+    int index = (threadIdx.x + 1) * 2 * stride - 1;
+
+    if (index < BLOCK_SIZE)
+      T[index] += T[index - stride];
+  }
+
+  // post-scan step
+  for (int stride = BLOCK_SIZE / 4; stride > 0; stride /=2) {
+    __syncthreads();
+
+    int index = (threadIdx.x + 1) * stride * 2 - 1;
+    if (index + stride < BLOCK_SIZE)
+      T[index + stride] += T[index]
+  }
+
+  // export data
+  __syncthreads();
+  if (output != NULL && base_idx + tid < len)
+    output[base_idx + tid] = T[tid];
+  if (aux != NULL && tid == BLOCK_SIZE - 1)
+    aux[blockIdx.x] = T[tid];
 }
 
 int main(int argc, char **argv) {
@@ -31,6 +75,13 @@ int main(int argc, char **argv) {
   float *deviceInput;
   float *deviceOutput;
   int numElements; // number of elements in the list
+
+  float *aux_1_in;
+  float *aux_1_out;
+  float *aux_2_in;
+  float *aux_2_out;
+  int numAux1;
+  int numAux2;
 
   args = gpuTKArg_read(argc, argv);
 
@@ -45,6 +96,13 @@ int main(int argc, char **argv) {
   gpuTKTime_start(GPU, "Allocating GPU memory.");
   gpuTKCheck(cudaMalloc((void **)&deviceInput, numElements * sizeof(float)));
   gpuTKCheck(cudaMalloc((void **)&deviceOutput, numElements * sizeof(float)));
+
+  numAux1 = (numElements - 1) / BLOCK_SIZE + 1;
+  numAux2 = (numAux1 - 1) / BLOCK_SIZE + 1;
+  gpuTKCheck(cudaMalloc((void **)&aux_1_in, numAux1 * sizeof(float)));
+  gpuTKCheck(cudaMalloc((void **)&aux_1_out, numAux1 * sizeof(float)));
+  gpuTKCheck(cudaMalloc((void **)&aux_2_in, numAux2 * sizeof(float)));
+  gpuTKCheck(cudaMalloc((void **)&aux_2_out, numAux2 * sizeof(float)));
   gpuTKTime_stop(GPU, "Allocating GPU memory.");
 
   gpuTKTime_start(GPU, "Clearing output memory.");
@@ -57,12 +115,29 @@ int main(int argc, char **argv) {
   gpuTKTime_stop(GPU, "Copying input memory to the GPU.");
 
   //@@ Initialize the grid and block dimensions here
+  dim3 dimBlock(BLOCK_SIZE, 1, 1);
+
+  dim3 dimGrid_1(numAux1, 1, 1);
+  dim3 dimGrid_2(numAux2, 1, 1);
+  dim3 dimGrid_3((numAux2 - 1) / BLOCK_SIZE, 1, 1);
+  dim3 dimGrid_4(numAux2, 1, 1);
+  dim3 dimGrid_5(numAux1, 1, 1);
 
   gpuTKTime_start(Compute, "Performing CUDA computation");
+  
   //@@ Modify this to complete the functionality of the scan
   //@@ on the deivce
-
+  scan<<<dimGrid_1, dimBlock, BLOCK_SIZE * sizeof(float)>>>(deviceInput, deviceOutput, aux_1_in, numElements);
   cudaDeviceSynchronize();
+  scan<<<dimGrid_2, dimBlock, BLOCK_SIZE * sizeof(float)>>>(aux_1_in, aux_1_out, aux_2_in, numAux1);
+  cudaDeviceSynchronize();
+  scan<<<dimGrid_3, dimBlock, BLOCK_SIZE * sizeof(float)>>>(aux_2_in, aux_2_out, NULL, numAux2);
+  cudaDeviceSynchronize();
+  add_block_sum<<<dimGrid_4, dimBlock>>>(aux_2_out, aux_1_out, numAux1);
+  cudaDeviceSynchronize();
+  add_block_sum<<<dimGrid_5, dimBlock>>>(aux_1_out, deviceOutput, numElements);
+  cudaDeviceSynchronize();
+
   gpuTKTime_stop(Compute, "Performing CUDA computation");
 
   gpuTKTime_start(Copy, "Copying output memory to the CPU");
