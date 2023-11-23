@@ -5,7 +5,7 @@
 
 #include <gputk.h>
 
-#define BLOCK_SIZE 512 //@@ You can change this
+#define BLOCK_SIZE 1024 //@@ You can change this
 
 #define gpuTKCheck(stmt)                                                     \
   do {                                                                    \
@@ -45,26 +45,27 @@ __global__ void scan(float *input, float *output, float *aux, int len) {
   for (unsigned stride = 1; stride <= blockDim.x; stride *= 2) {
     __syncthreads();
 
-    int index = (threadIdx.x + 1) * 2 * stride - 1;
+    int index = (tid + 1) * 2 * stride - 1;
 
     if (index < BLOCK_SIZE)
       T[index] += T[index - stride];
   }
 
   // post-scan step
-  for (int stride = BLOCK_SIZE / 4; stride > 0; stride /=2) {
+  for (int stride = BLOCK_SIZE / 4; stride > 0; stride /= 2) {
     __syncthreads();
 
-    int index = (threadIdx.x + 1) * stride * 2 - 1;
+    int index = (tid + 1) * stride * 2 - 1;
+
     if (index + stride < BLOCK_SIZE)
-      T[index + stride] += T[index]
+      T[index + stride] += T[index];
   }
 
   // export data
   __syncthreads();
-  if (output != NULL && base_idx + tid < len)
+  if (base_idx + tid < len)
     output[base_idx + tid] = T[tid];
-  if (aux != NULL && tid == BLOCK_SIZE - 1)
+  if (aux != NULL && tid == blockDim.x - 1)
     aux[blockIdx.x] = T[tid];
 }
 
@@ -148,6 +149,12 @@ int main(int argc, char **argv) {
   gpuTKTime_start(GPU, "Freeing GPU Memory");
   cudaFree(deviceInput);
   cudaFree(deviceOutput);
+
+  cudaFree(aux_1_in);
+  cudaFree(aux_1_out);
+  cudaFree(aux_2_in);
+  cudaFree(aux_2_out);
+
   gpuTKTime_stop(GPU, "Freeing GPU Memory");
 
   gpuTKSolution(args, hostOutput, numElements);
