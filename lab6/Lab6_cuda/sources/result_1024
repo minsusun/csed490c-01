@@ -1,0 +1,101 @@
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 1.048 ms
+The number of input elements in the input is 64
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.797845 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.028089 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.033644 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.081846 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.023228 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.127458 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 1.77805 ms
+The number of input elements in the input is 112
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.218963 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.035725 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.035914 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.099399 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.030641 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.158796 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 10.5393 ms
+The number of input elements in the input is 1120
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.21611 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.036184 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.040287 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.099452 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.031173 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.155047 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 59.6358 ms
+The number of input elements in the input is 9921
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.140921 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.021868 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.037493 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.069342 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.041045 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.106879 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 50.104 ms
+The number of input elements in the input is 4098
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.32711 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.046429 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.05258 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.123539 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.044311 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.195584 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 140.55 ms
+The number of input elements in the input is 16656
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.200643 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.058279 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.055095 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.068949 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.044435 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.135108 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 174.371 ms
+The number of input elements in the input is 30000
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.134361 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.038765 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.049664 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.059065 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.045696 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.103473 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 449.914 ms
+The number of input elements in the input is 96000
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.128536 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.03972 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.107587 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.064596 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.100118 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.111634 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 537.913 ms
+The number of input elements in the input is 120000
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.163523 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.04212 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.128493 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.065193 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.128312 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.105905 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 89-92] Elapsed time: 1125.29 ms
+The number of input elements in the input is 262144
+[TIME][GPU][Allocating GPU memory.][template.cu: 97-107] Elapsed time: 0.20681 ms
+[TIME][GPU][Clearing output memory.][template.cu: 109-111] Elapsed time: 0.046183 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 113-116] Elapsed time: 0.262387 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 127-142] Elapsed time: 0.080933 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 144-147] Elapsed time: 0.216865 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 149-158] Elapsed time: 0.171005 ms
+The solution is correct
+

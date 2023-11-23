@@ -1,3 +1,29 @@
+#[CSED490C] Assignment Report: Lab6_cuda
+
+- Student Id : 20220848
+- Name : 선민수
+
+---
+
+### 1. Answering follwing questions
+
+##### Q: How many global memory reads are being performed by your kernel?
+##### A: `numElements + numAux1 + numAux2 + 2 * numAux1 + 2 * numElements`
+
+##### Q: How many global memory writes are being performed by your kernel?
+##### A: `numElements + numAux1 + numAux1 + numAux2 + numAux2 + numAux1 + numElements`
+
+##### Q: How many times does a single thread block synchronize to reduce its portion of the array to a single value?
+##### A: `O(logN)`, where N is the block size
+
+##### Q: Is it possible to get different results from running the serial version and parallel version of scan? Explain.
+##### A: It is possible to get different results. It is because the input array is changed in the scanning time, the parallel version of can has different result. When the input chagne occurs after the local scan(scan in block), the change does not affect the result since the partial sum of that block where the change occured is already computed and never computed again.
+
+---
+
+### 2. `Template.cu`
+
+```cpp
 // Given a list (lst) of length n
 // Output its prefix sum = {lst[0], lst[0] + lst[1], lst[0] + lst[1] + ...
 // +
@@ -164,3 +190,61 @@ int main(int argc, char **argv) {
 
   return 0;
 }
+```
+
+---
+### 3. Execution times
+#### Execution Systems
+All compilation and the executions are made on docker container.
+The number in the indices in the table and the legend in the chart means the number of threads per block.
+##### TITANXP
+```shell
+srun -p titanxp -N 1 -n 6 -t 02:00:00 --gres=gpu:1 --pty /bin/bash -l
+```
+- Cluster : `cse-cluster1.postech.ac.kr`
+- Docker Image : `nvidia:cuda/12.0.1-devel-ubuntu22.04`
+- Driver Version : `525.85.12`
+- Cuda Version : `12.0`
+
+####Execution Script
+```shell
+base="/workspace"
+cd $base/sources
+make template
+echo > $base/result
+for idx in {0..9}
+do
+    echo "Testcase $idx"
+    cd $base/sources/ListScan/Dataset/$idx
+    ./../../../ListScan_template -e output.raw -i input.raw -o o.raw -t vector >> $base/result
+    echo >> $base/result
+done
+```
+
+##### 1 [Importing data and creating memory on host]
+<p align="center"><img src="imgs/image.png" style="width: 100%; height: auto;"></p>
+<p align="center"><img src="imgs/image-1.png" style="width:100%; height: auto;"></p>
+
+##### 2 [Allocating GPU memory]
+<p align="center"><img src="imgs/image-2.png" style="width: 100%; height: auto;"></p>
+<p align="center"><img src="imgs/image-3.png" style="width: 100%; height: auto;"></p>
+
+##### 3 [Clearing output memory]
+<p align="center"><img src="imgs/image-4.png" style="width: 100%; height: auto;"></p>
+<p align="center"><img src="imgs/image-5.png" style="width: 100%; height: auto;"></p>
+
+##### 4 [Copying input memory to the GPU]
+<p align="center"><img src="imgs/image-6.png" style="width: 100%; height: auto;"></p>
+<p align="center"><img src="imgs/image-7.png" style="width: 100%; height: auto;"></p>
+
+##### 5 [Performing CUDA computation]
+<p align="center"><img src="imgs/image-8.png" style="width: 100%; height: auto;"></p>
+<p align="center"><img src="imgs/image-9.png" style="width: 100%; height: auto;"></p>
+
+##### 6 [Copying output memory to the CPU]
+<p align="center"><img src="imgs/image-10.png" style="width: 100%; height: auto;"></p>
+<p align="center"><img src="imgs/image-11.png" style="width: 100%; height: auto;"></p>
+
+##### 5 [Freeing GPU Memory]
+<p align="center"><img src="imgs/image-12.png" style="width: 100%; height: auto;"></p>
+<p align="center"><img src="imgs/image-13.png" style="width: 100%; height: auto;"></p>
