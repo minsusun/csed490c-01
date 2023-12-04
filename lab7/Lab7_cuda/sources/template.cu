@@ -166,12 +166,12 @@ int main(int argc, char **argv) {
 
   gpuTKTime_start(GPU, "Copying input memory to the GPU.");
   //@@ Copy memory to the GPU here
-  gpuTKCheck(cudaMemcpy(device_data, jds_t_data, numTotalElems * sizeof(float)));
-  gpuTKCheck(cudaMemcpy(device_col_idx, jds_t_col_idx, numTotalElems * sizeof(int)));
-  gpuTKCheck(cudaMemcpy(device_col_ptr, jds_t_col_ptr, (numARows + 1) * sizeof(int)));
-  gpuTKCheck(cudaMemcpy(device_row_idx, jds_t_row_idx, numARows * sizeof(int)));
+  gpuTKCheck(cudaMemcpy(device_data, jds_t_data, numTotalElems * sizeof(float), cudaMemcpyHostToDevice));
+  gpuTKCheck(cudaMemcpy(device_col_idx, jds_t_col_idx, numTotalElems * sizeof(int), cudaMemcpyHostToDevice));
+  gpuTKCheck(cudaMemcpy(device_col_ptr, jds_t_col_ptr, (numARows + 1) * sizeof(int), cudaMemcpyHostToDevice));
+  gpuTKCheck(cudaMemcpy(device_row_idx, jds_t_row_idx, numARows * sizeof(int), cudaMemcpyHostToDevice));
 
-  gpuTKCheck(cudaMemcpy(deviceB, hostB, numBRows * numBColumns * sizeof(float)));
+  gpuTKCheck(cudaMemcpy(deviceB, hostB, numBRows * numBColumns * sizeof(float), cudaMemcpyHostToDevice));
 
   gpuTKTime_stop(GPU, "Copying input memory to the GPU.");
 
@@ -181,14 +181,14 @@ int main(int argc, char **argv) {
 
   gpuTKTime_start(Compute, "Performing CUDA computation");
   //@@ Launch the GPU Kernel here
-  SpMV_JDS_T<<<dimGrid, dimBlock>>>(device_data, device_col_idx, device_col_ptr, device_row_idx, deviceB, deviceC);
+  SpMV_JDS_T<<<dimGrid, dimBlock>>>(numARows, device_data, device_col_idx, device_col_ptr, device_row_idx, deviceB, deviceC);
 
   cudaDeviceSynchronize();
   gpuTKTime_stop(Compute, "Performing CUDA computation");
 
   gpuTKTime_start(Copy, "Copying output memory to the CPU");
   //@@ Copy the GPU memory back to the CPU here
-  gpuTKCheck(cudaMemcpy(hostC, deviceC, numCRows * numCColumns * sizeof(float)));
+  gpuTKCheck(cudaMemcpy(hostC, deviceC, numCRows * numCColumns * sizeof(float), cudaMemcpyHostToDevice));
 
   gpuTKTime_stop(Copy, "Copying output memory to the CPU");
 
