@@ -1,0 +1,91 @@
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 76-86] Elapsed time: 3.3335 ms
+The dimensions of A are 16 x 16
+The dimensions of B are 16 x 1
+[TIME][GPU][Allocating GPU memory.][template.cu: 159-169] Elapsed time: 0.3805 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 171-180] Elapsed time: 0.588 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 186-191] Elapsed time: 0.3321 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 193-197] Elapsed time: 0.0851 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 200-210] Elapsed time: 0.2317 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 76-86] Elapsed time: 2.4996 ms
+The dimensions of A are 64 x 64
+The dimensions of B are 64 x 1
+[TIME][GPU][Allocating GPU memory.][template.cu: 159-169] Elapsed time: 0.4123 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 171-180] Elapsed time: 2.458 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 186-191] Elapsed time: 0.393 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 193-197] Elapsed time: 0.1969 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 200-210] Elapsed time: 0.2188 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 76-86] Elapsed time: 3.6502 ms
+The dimensions of A are 64 x 128
+The dimensions of B are 128 x 1
+[TIME][GPU][Allocating GPU memory.][template.cu: 159-169] Elapsed time: 0.3712 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 171-180] Elapsed time: 1.442 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 186-191] Elapsed time: 1.4337 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 193-197] Elapsed time: 0.0881 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 200-210] Elapsed time: 0.2546 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 76-86] Elapsed time: 3.4242 ms
+The dimensions of A are 112 x 48
+The dimensions of B are 48 x 1
+[TIME][GPU][Allocating GPU memory.][template.cu: 159-169] Elapsed time: 0.4857 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 171-180] Elapsed time: 1.0853 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 186-191] Elapsed time: 0.8368 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 193-197] Elapsed time: 0.0694 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 200-210] Elapsed time: 0.2706 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 76-86] Elapsed time: 7.9779 ms
+The dimensions of A are 168 x 168
+The dimensions of B are 168 x 1
+[TIME][GPU][Allocating GPU memory.][template.cu: 159-169] Elapsed time: 0.4084 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 171-180] Elapsed time: 0.6557 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 186-191] Elapsed time: 0.5573 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 193-197] Elapsed time: 0.461 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 200-210] Elapsed time: 0.416 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 76-86] Elapsed time: 55.3007 ms
+The dimensions of A are 512 x 510
+The dimensions of B are 510 x 1
+[TIME][GPU][Allocating GPU memory.][template.cu: 159-169] Elapsed time: 0.5275 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 171-180] Elapsed time: 0.8656 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 186-191] Elapsed time: 0.7626 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 193-197] Elapsed time: 0.2904 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 200-210] Elapsed time: 0.3105 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 76-86] Elapsed time: 203.396 ms
+The dimensions of A are 1024 x 1024
+The dimensions of B are 1024 x 1
+[TIME][GPU][Allocating GPU memory.][template.cu: 159-169] Elapsed time: 1.1808 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 171-180] Elapsed time: 3.4666 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 186-191] Elapsed time: 0.6584 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 193-197] Elapsed time: 0.0659 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 200-210] Elapsed time: 0.5817 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 76-86] Elapsed time: 408.102 ms
+The dimensions of A are 1024 x 2048
+The dimensions of B are 2048 x 1
+[TIME][GPU][Allocating GPU memory.][template.cu: 159-169] Elapsed time: 1.2232 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 171-180] Elapsed time: 3.4105 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 186-191] Elapsed time: 1.1234 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 193-197] Elapsed time: 0.1402 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 200-210] Elapsed time: 0.842 ms
+The solution is correct
+
+[TIME][Generic][Importing data and creating memory on host][template.cu: 76-86] Elapsed time: 6748.07 ms
+The dimensions of A are 4096 x 8000
+The dimensions of B are 8000 x 1
+[TIME][GPU][Allocating GPU memory.][template.cu: 159-169] Elapsed time: 3.6611 ms
+[TIME][GPU][Copying input memory to the GPU.][template.cu: 171-180] Elapsed time: 57.3245 ms
+[TIME][Compute][Performing CUDA computation][template.cu: 186-191] Elapsed time: 6.1316 ms
+[TIME][Copy][Copying output memory to the CPU][template.cu: 193-197] Elapsed time: 0.4125 ms
+[TIME][GPU][Freeing GPU Memory][template.cu: 200-210] Elapsed time: 0.9528 ms
+The solution is correct
+
