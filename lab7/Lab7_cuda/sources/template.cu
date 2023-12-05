@@ -23,7 +23,7 @@ __global__ void SpMV_JDS_T(int numRows, float *data, int *col_idx, int *col_ptr,
     float value = 0;
     unsigned int idx = 0;
     while(col_ptr[idx + 1] - col_ptr[idx] > row) {
-      value += data[col_ptr[idx] + row] * B[col_idx[idx] + row];
+      value += data[col_ptr[idx] + row] * B[col_idx[col_ptr[idx] + row]];
       idx++;
     }
     C[row_idx[row]] = value;
@@ -88,25 +88,24 @@ int main(int argc, char **argv) {
   //@@ Create JDS format data
   cnt_o = (int *)malloc(numARows * sizeof(int));
   cnt_s = (int *)malloc(numARows * sizeof(int));
-  memset(cnt_o, 0, numARows * sizeof(int));
+  for(int i = 0; i < numARows; i++)
+    cnt_o[i] = 0;
 
   for(int i = 0; i < numARows; i++) {
     for(int j = 0; j < numAColumns; j++)
       cnt_o[i] += (hostA[i * numAColumns + j] != 0.0);
-    cnt_s[i] = cnt_o[i], numTotalElems += cnt_o[i];
+    numTotalElems += cnt_o[i];
+    cnt_s[i] = cnt_o[i];
   }
   
   sort(cnt_s, cnt_s + numARows, greater<float>());
   
-  jds_data = (float *)malloc(numTotalElems * sizeof(int));
+  jds_data = (float *)malloc(numTotalElems * sizeof(float));
   jds_col_idx = (int *)malloc(numTotalElems * sizeof(int));
   jds_row_idx = (int *)malloc(numARows * sizeof(int));
   jds_row_ptr = (int *)malloc((numARows + 1) * sizeof(int));
   
   jds_row_ptr[0] = 0;
-
-  for(int i = 0; i < numARows; i++) jds_t_row_idx[i] = jds_row_idx[i];
-  
   for(int i = 0, idx = 0; i < numARows; i++) {
     for(int j = 0; j < numARows; j++) {
       if(cnt_s[i] == cnt_o[j]) {
@@ -128,10 +127,10 @@ int main(int argc, char **argv) {
   jds_t_data = (float *)malloc(numTotalElems * sizeof(float));
   jds_t_col_idx = (int *)malloc(numTotalElems * sizeof(int));
   jds_t_row_idx = (int *)malloc(numARows * sizeof(int));
-  jds_t_col_ptr = (int *)malloc((numARows + 1) * sizeof(int));
+  jds_t_col_ptr = (int *)malloc((numAColumns + 1) * sizeof(int));
   
   jds_t_col_ptr[0] = 0;
-  
+  for(int i = 0; i < numARows; i++) jds_t_row_idx[i] = jds_row_idx[i];
   for(int i = 0, idx = 0; i < numAColumns; i++) {
     for(int j = 0; j < numARows && jds_row_ptr[j] + i < jds_row_ptr[j + 1]; j++) {
       jds_t_data[idx] = jds_data[jds_row_ptr[j] + i];
@@ -140,7 +139,7 @@ int main(int argc, char **argv) {
     }
     jds_t_col_ptr[i + 1] = idx;
   }
-  
+
   free(cnt_o);
   free(cnt_s);
 
@@ -156,7 +155,7 @@ int main(int argc, char **argv) {
   //@@ Allocate GPU memory here
   gpuTKCheck(cudaMalloc((void **)&device_data, numTotalElems * sizeof(float)));
   gpuTKCheck(cudaMalloc((void **)&device_col_idx, numTotalElems * sizeof(int)));
-  gpuTKCheck(cudaMalloc((void **)&device_col_ptr, (numARows + 1) * sizeof(int)));
+  gpuTKCheck(cudaMalloc((void **)&device_col_ptr, (numAColumns + 1) * sizeof(int)));
   gpuTKCheck(cudaMalloc((void **)&device_row_idx, numARows * sizeof(int)));
 
   gpuTKCheck(cudaMalloc((void **)&deviceB, numBRows * numBColumns * sizeof(float)));
@@ -168,7 +167,7 @@ int main(int argc, char **argv) {
   //@@ Copy memory to the GPU here
   gpuTKCheck(cudaMemcpy(device_data, jds_t_data, numTotalElems * sizeof(float), cudaMemcpyHostToDevice));
   gpuTKCheck(cudaMemcpy(device_col_idx, jds_t_col_idx, numTotalElems * sizeof(int), cudaMemcpyHostToDevice));
-  gpuTKCheck(cudaMemcpy(device_col_ptr, jds_t_col_ptr, (numARows + 1) * sizeof(int), cudaMemcpyHostToDevice));
+  gpuTKCheck(cudaMemcpy(device_col_ptr, jds_t_col_ptr, (numAColumns + 1) * sizeof(int), cudaMemcpyHostToDevice));
   gpuTKCheck(cudaMemcpy(device_row_idx, jds_t_row_idx, numARows * sizeof(int), cudaMemcpyHostToDevice));
 
   gpuTKCheck(cudaMemcpy(deviceB, hostB, numBRows * numBColumns * sizeof(float), cudaMemcpyHostToDevice));
@@ -188,13 +187,20 @@ int main(int argc, char **argv) {
 
   gpuTKTime_start(Copy, "Copying output memory to the CPU");
   //@@ Copy the GPU memory back to the CPU here
-  gpuTKCheck(cudaMemcpy(hostC, deviceC, numCRows * numCColumns * sizeof(float), cudaMemcpyHostToDevice));
+  gpuTKCheck(cudaMemcpy(hostC, deviceC, numCRows * numCColumns * sizeof(float), cudaMemcpyDeviceToHost));
 
   gpuTKTime_stop(Copy, "Copying output memory to the CPU");
 
 
   gpuTKTime_start(GPU, "Freeing GPU Memory");
   //@@ Free the GPU memory here
+  cudaFree(device_data);
+  cudaFree(device_col_idx);
+  cudaFree(device_col_ptr);
+  cudaFree(device_row_idx);
+
+  cudaFree(deviceB);
+  cudaFree(deviceC);
 
   gpuTKTime_stop(GPU, "Freeing GPU Memory");
 
