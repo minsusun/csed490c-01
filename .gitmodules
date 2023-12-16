@@ -1,0 +1,3 @@
+[submodule "Project/pbbsbench"]
+	path = Project/pbbsbench
+	url = https://github.com/cmuparlay/pbbsbench.git
