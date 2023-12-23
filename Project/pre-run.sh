@@ -11,4 +11,4 @@ make 3Dplummer_1000000
 cd ../../../../
 cp -r pbbsbench/testData/geometryData/data ./
 rm data/Makefile
-mkdir bin data output
+mkdir bin output
